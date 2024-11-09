@@ -1,4 +1,5 @@
 import model.dao.DaoFactory;
+import model.dao.DepartmentDao;
 import model.dao.SellerDao;
 import model.entities.Department;
 import model.entities.Seller;
@@ -15,7 +16,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Locale.setDefault(Locale.US);
 
-
+        /*
        SellerDao sellerDao = DaoFactory.createSellerDao();
 
        System.out.println("=== TEST 1: seller findById =====");
@@ -55,6 +56,23 @@ public class Main {
         int id = sc.nextInt();
         sellerDao.deleteById(id);
         System.out.println("Deleted completed");
-        sc.close();
+        */
+
+        // crood DEPARTMENT
+        DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
+
+        System.out.println("=== TEST 1: Department insert =====");
+        Department newDepartment = new Department(6, "Manutenção");
+        departmentDao.insert(newDepartment);
+        System.out.println("Inserted! New Department = " + newDepartment.getName());
+
+        System.out.println("\n=== TEST 2: update =======");
+        Department dep2 = departmentDao.findById(1);
+        dep2.setName("Marketing");
+        departmentDao.update(dep2);
+        System.out.println("Update completed");
+
+
+
     }
 }
