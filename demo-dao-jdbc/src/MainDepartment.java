@@ -14,10 +14,10 @@ public class MainDepartment {
         // crood DEPARTMENT
         DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
 
-        System.out.println("=== TEST 1: insert =====");
-        Department newDepartment = new Department(6, "Manutenção");
-        departmentDao.insert(newDepartment);
-        System.out.println("Inserted! New Department = " + newDepartment.getName());
+       // System.out.println("=== TEST 1: insert =====");
+        //Department newDepartment = new Department(6, "Manutenção");
+        //departmentDao.insert(newDepartment);
+        //System.out.println("Inserted! New Department = " + newDepartment.getName());
 
         System.out.println("\n=== TEST 2: update =======");
         Department dep2 = departmentDao.findById(1);
@@ -37,8 +37,14 @@ public class MainDepartment {
             System.out.println(d);
         }
 
+        System.out.println("\n=== TEST 5: delete =======");
+        System.out.println("Enter the id for delete test: ");
+        int id = sc.nextInt();
+        departmentDao.deleteById(id);
+        System.out.println("Deleted Department = " + id);
 
 
+        sc.close();
 
     }
 }
