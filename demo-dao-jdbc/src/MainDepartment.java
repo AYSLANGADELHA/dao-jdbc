@@ -3,8 +3,7 @@ import model.dao.DepartmentDao;
 import model.entities.Department;
 
 
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 public class MainDepartment {
     public static void main(String[] args) {
@@ -30,6 +29,15 @@ public class MainDepartment {
         System.out.println("\n=== TEST 3: findById =======");
         Department dep = departmentDao.findById(1);
         System.out.println(dep);
+
+        System.out.println("\n=== TEST 4: findAll =======");
+        List<Department> list = departmentDao.findAll();
+        Collections.sort(list, Comparator.comparing(Department::getId));
+        for (Department d : list) {
+            System.out.println(d);
+        }
+
+
 
 
     }
